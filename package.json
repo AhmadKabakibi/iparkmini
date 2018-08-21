@@ -4,14 +4,39 @@
   "description": "iparkmini app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test-unit": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/standard",
+    "lint-fix": "./node_modules/.bin/standard --fix"
+  },
+  "author": "a.kabakibi",
+  "license": "MIT",
+  "engines": {
+    "node": "8.11.x"
+  },
+  "dependencies": {
+    "async": "^2.6.1",
+    "body-parser": "^1.18.3",
+    "colors": "^1.3.1",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-validator": "^5.3.0",
+    "moment": "^2.22.2",
+    "mongoose": "^5.2.9",
+    "morgan": "^1.9.0",
+    "socket.io": "^2.1.1",
+    "split": "^1.0.1",
+    "winston": "^3.0.0"
+  },
+  "devDependencies": {
+    "jest": "^23.5.0",
+    "standard": "^11.0.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AhmadKabakibi/iparkmini.git"
   },
-  "author": "a.kabakibi",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/AhmadKabakibi/iparkmini/issues"
   },
