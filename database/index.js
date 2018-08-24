@@ -1,14 +1,13 @@
 const mongoose = require('mongoose')
 
 module.exports = {
-  start: start,
-  stop: stop
-}
+  connect () {
+    mongoose.connect(`mongodb://localhost/${process.env.DB_NAME}`, {
+      useNewUrlParser: true
+    })
+  },
 
-function start () {
-  mongoose.connect(`mongodb://localhost/${process.env.DB_NAME}`, { useNewUrlParser: true })
-}
-
-function stop () {
-  mongoose.disconnect()
+  disconnect () {
+    mongoose.disconnect()
+  }
 }
