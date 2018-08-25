@@ -7,6 +7,19 @@
 	"item": [
 		{
 			"name": "Create",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b8518da4-c618-4ea4-babe-7d210bbc1fc5",
+						"type": "text/javascript",
+						"exec": [
+							"var current_timestamp = new Date();",
+							"postman.setEnvironmentVariable(\"current_timestamp\", current_timestamp.toISOString());"
+						]
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -17,10 +30,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"carBrand\": \"bmw\",\r\n    \"licensePlate\": \"nl-abc-33\",\r\n    \"timeParkedAt\": \"2018-08-15T16:36:31+00:00\"\r\n}"
+					"raw": "{\r\n    \"carBrand\": \"bmw\",\r\n    \"licensePlate\": \"nl-abc-33\",\r\n    \"timeParkedAt\":\"{{current_timestamp}}\"\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4050/v1/parkinglots/1/car",
+					"raw": "http://localhost:4050/v1/parkinglots/2/car",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -29,7 +42,7 @@
 					"path": [
 						"v1",
 						"parkinglots",
-						"1",
+						"2",
 						"car"
 					]
 				}
@@ -51,7 +64,7 @@
 					"raw": "{\r\n    \"carBrand\": \"bmw\",\r\n    \"licensePlate\": \"nl-abc-33\",\r\n    \"timeParkedAt\": \"2018-08-15T16:36:31+00:00\"\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:4050/v1/parkinglots/1/cars/4",
+					"raw": "http://localhost:4050/v1/parkinglots/2/cars/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -60,7 +73,7 @@
 					"path": [
 						"v1",
 						"parkinglots",
-						"1",
+						"2",
 						"cars",
 						"4"
 					]
