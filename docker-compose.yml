@@ -1,1 +1,70 @@
 # Node, Mongo, Redis, Nginx
+
+version: "3"
+services:
+  iparkmini-api:
+    image: node
+    depends_on:
+      - mongodb 
+      - redis
+    ports:
+      - "4050:4050"
+    volumes:
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
+    command: npm start
+    networks:
+      - backend
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+  mongodb:
+    image: mongo
+    volumes:
+      - mongodb:/data/db/
+    networks:
+      - backend
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+  redis:
+    image: redis
+    networks:
+      - backend
+    volumes:
+      - redis:/data/
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+  nginx:
+    image: nginx
+    depends_on:
+      - iparkmini-api
+    networks:
+      - backend
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100MB"
+        max-file: "3"
+
+networks:
+  backend:
+
+volumes:
+  mongodb:
+  redis:

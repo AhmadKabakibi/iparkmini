@@ -9,11 +9,13 @@ npm install
 ```
 ## Run
 ```sh
+Need Docker Community Edition installed: `docker-compose up`
 npm run start
 ```
 
 ## API
 TODO:
+
 
 ## Maintainers
 

@@ -1,10 +1,11 @@
 FROM nginx
 MAINTAINER akabakibi
 
-ENV SERVICE_NAME iparkmini
-ENV SERVICE_80_TAGS http
-
-# Consul health checks
-ENV SERVICE_80_CHECK_HTTP=/version.txt
-ENV SERVICE_80_CHECK_INTERVAL=60s
-ENV SERVICE_80_CHECK_TIMEOUT=3s
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package.json /usr/src/app/
+COPY package-lock.json /usr/src/app
+RUN npm install
+COPY . /usr/src/app
+EXPOSE 4050
+CMD [ “npm”, “start” ]

@@ -5,7 +5,7 @@ mongoose.Promise = require('bluebird')
 
 module.exports = {
   connect () {
-    mongoose.connect(`mongodb://localhost/${process.env.DB_NAME}`, {
+    mongoose.connect(`mongodb://${process.env.DB_HOST}/${process.env.DB_NAME}`, {
       useNewUrlParser: true
     })
   },
