@@ -31,23 +31,21 @@ Import Postman collection IParkMini.postman_collection.json
 
 ## API
 TODO:
-Improve redis setup 
-Integrate socket.io with api implementation
-Add user interface to check and load parking lots
+- Improve redis setup 
+- Integrate socket.io with api implementation
+- Add user interface to check and load parking lots
 
-```sh
-implement Story 3
-As a user I want to get a list of all the money I'm making
-`GET /inventory/$(T)` should give me the total inventory of
-all the parking lots.
-example output:
-
-{
-"totalAmountOfCars": 6,
-"value": 14.70,
-"discountInCents": 50
-}
-
+> implement Story 3
+    As a user I want to get a list of all the money I'm making
+    `GET /inventory/$(T)` should give me the total inventory of
+    all the parking lots.
+    example output:
+```json
+	`{
+	"totalAmountOfCars": 6,
+	"value": 14.70,
+	"discountInCents": 50
+	}
 ```
 
 
