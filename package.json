@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test-unit": "jest --coverage",
+    "test-unit": "jest --coverage --detectOpenHandles --forceExit",
     "lint": "./node_modules/.bin/standard",
     "lint-fix": "./node_modules/.bin/standard --fix",
     "load-csv": "node ./lib/utils/csv"
