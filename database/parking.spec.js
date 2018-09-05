@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
 const Parking = require('./parking')
 
-process.env.DB_HOST = 'localhost'
+// Use bluebird
+mongoose.Promise = require('bluebird')
+process.env.DB_HOST = 'mongodb'
 process.env.DB_NAME = 'ipark_db_dev'
 
 describe('Parking Model', () => {
@@ -24,7 +26,9 @@ describe('Parking Model', () => {
     */
     if (mongoose.connection.readyState === 0) {
       mongoose.connect(
-        `mongodb://${process.env.DB_HOST}/${process.env.DB_NAME}`, (err) => {
+        `mongodb://${process.env.DB_HOST}/${process.env.DB_NAME}`, {
+          useNewUrlParser: true
+        }, (err) => {
           if (err) throw err
           return clearDB()
         }
@@ -40,14 +44,16 @@ describe('Parking Model', () => {
   })
 
   describe('CREATE', () => {
-    it('can create a parking lot', async () => {
+    xit('can create a parking lot', async () => {
       const parking = new Parking({
         carBrand: 'bmw',
         licensePlate: '12-dfb-55',
         parkinglotId: '20',
         timeParkedAt: new Date()
       }).save(() => {
-        parking.findOne({ licensePlate: '12-dfb-55' }, (err, results) => {
+        parking.findOne({
+          licensePlate: '12-dfb-55'
+        }, (results) => {
           expect(results.licensePlate).toEqual('12-dfb-55')
         })
       })

@@ -3,15 +3,16 @@ module.exports = {
   coveragePathIgnorePatterns: [],
   coverageThreshold: {
     global: {
-      branches: 30,
-      functions: 30,
-      lines: 30,
-      statements: 30
+      branches: 10,
+      functions: 10,
+      lines: 10,
+      statements: 10
     }
   },
   reporters: ['default', './node_modules/jest-html-reporter'],
   testMatch: [
     '**/*.spec.js'
   ],
-  testURL: 'http://localhost/'
+  testURL: 'http://localhost/',
+  testEnvironment: 'node'
 }
