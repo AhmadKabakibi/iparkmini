@@ -28,7 +28,7 @@
     "dotenv": "^6.0.0",
     "event-stream": "^3.3.4",
     "express": "^4.16.3",
-    "express-validator": "^5.3.0",
+    "express-validator": "^5.3.1",
     "jest-html-reporter": "^2.4.2",
     "moment": "^2.22.2",
     "mongoose": "^5.2.9",
